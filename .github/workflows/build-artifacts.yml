@@ -7,7 +7,6 @@ on:
     branches: [ "develop" ]   
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -33,3 +32,11 @@ jobs:
       with:
         name: Package
         path: staging
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          lambda/target/lambda-develop-SNAPSHOT.jar
+          layer/target/layer-develop-SNAPSHOT.jar
+        draft: true
