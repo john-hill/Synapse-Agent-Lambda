@@ -5,7 +5,7 @@
 	<groupId>org.sagebionetworks</groupId>
 	<artifactId>synapse-agent-lambda</artifactId>
 	<name>Synapse Agent Lambda</name>
-	<version>develop-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>pom</packaging>
 	<url>https://www.sagebase.org/</url>
 	<modules>
