@@ -37,6 +37,6 @@ public class SearchHandlerTest {
 		// call under test
 		String result = handler.handleEvent(event, mockContext);
 		assertNotNull(result);
-		System.out.println(result.toString());
+		System.out.println(result.toString().substring(0, 100));
 	}
 }
