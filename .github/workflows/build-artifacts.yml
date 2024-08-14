@@ -26,17 +26,17 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Copy artifacts to staging folder
-      run: mkdir staging && cp **/target/*.jar staging
-    - uses: actions/upload-artifact@v4
-      with:
-        name: Package
-        path: staging
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: |
-          lambda/target/lambda-develop-SNAPSHOT.jar
-          layer/target/layer-develop-SNAPSHOT.jar
-        draft: true
+#    - name: Copy artifacts to staging folder
+#      run: mkdir staging && cp **/target/*.jar staging
+#    - uses: actions/upload-artifact@v4
+#      with:
+#        name: Package
+#        path: staging
+#    - name: Release
+#      uses: softprops/action-gh-release@v1
+#      if: startsWith(github.ref, 'refs/tags/')
+#      with:
+#        files: |
+#          lambda/target/lambda-develop-SNAPSHOT.jar
+#          layer/target/layer-develop-SNAPSHOT.jar
+#        draft: true

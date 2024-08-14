@@ -1,27 +1,23 @@
 # Create a version: on merge to develop from pull request
 name: Bump version
+
+# Controls when the workflow will run
 on:
+  push:
+    branches: [ "develop" ]
   pull_request:
-    types:
+    types: 
       - closed
-    branches:
-      - develop
+    branches: [ "develop" ]
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        ref: ${{ github.event.pull_request.merge_commit_sha }}
-        fetch-depth: '0'
-
-    - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.61.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
-        PRERELEASE: true
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Github Tag Bump
+        uses: anothrNick/github-tag-action@1.61.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
