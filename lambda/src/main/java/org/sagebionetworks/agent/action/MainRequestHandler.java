@@ -30,10 +30,6 @@ public class MainRequestHandler implements RequestStreamHandler {
 		this.gson = injector.getInstance(Gson.class);
 	}
 
-//	@Override
-//	public String handleRequest(String input, Context context) {
-//		return handler.handleRequest(input, context);
-//	}
 
 	@Override
 	public void handleRequest(InputStream input, OutputStream output, Context context) throws IOException {
