@@ -1,3 +1,4 @@
+# This is the basic build and test script run when PRs are created.
 name: build-and-test
 
 on:

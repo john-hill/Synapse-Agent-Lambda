@@ -1,56 +1,21 @@
-# Create a new new tag when a PR is merged into develop
+# When PR is merged into develop a new tag is created.  This will trigger the release-artifacts.yml action.
 name: Bump version
 on:
+  push:
+    branches: [ "develop" ]
   pull_request:
-    types:
+    types: 
       - closed
-    branches:
-      - develop
-#
-#jobs:
-#  build:
-#    if: github.event.pull_request.merged == true
-#    runs-on: ubuntu-22.04
-#    permissions:
-#      contents: write
-#    steps:
-#    - uses: actions/checkout@v4
-#      with:
-#        ref: ${{ github.event.pull_request.merge_commit_sha }}
-#        fetch-depth: '0'
-#
-#    - name: Bump version and push tag
-#      uses: anothrNick/github-tag-action@1.70.0
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        WITH_V: true
-#        PRERELEASE: true
-
-#on:
-#  push:
-#    branches: [ "develop" ]
-#  pull_request:
-#    types: 
-#      - closed
-#    branches: [ "develop" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
-#    runs-on: ubuntu-latest
-#    permissions:
-#      contents: write
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
-      
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Github Tag Bump
-        uses: anothrNick/github-tag-action@1.70.0
+        uses: anothrNick/github-tag-action@1.61.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
-          DEFAULT_BRANCH: develop
