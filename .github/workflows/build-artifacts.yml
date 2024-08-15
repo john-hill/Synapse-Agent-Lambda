@@ -31,21 +31,17 @@ jobs:
       
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.70.0
+      with:
+        ref: ${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         WITH_V: true
         PRERELEASE: true
-      
-#    - name: Copy artifacts to staging folder
-#      run: mkdir staging && cp **/target/*.jar staging
-#    - uses: actions/upload-artifact@v4
-#      with:
-#        name: Package
-#        path: staging
-    - name: Release
+        
+    - name: Deploy Release Artifacts
       uses: softprops/action-gh-release@v1
 #      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
           **/target/*.jar
-        draft: true
+        draft: false
