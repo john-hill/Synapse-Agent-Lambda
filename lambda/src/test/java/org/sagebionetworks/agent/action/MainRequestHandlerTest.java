@@ -40,6 +40,7 @@ public class MainRequestHandlerTest {
 		AgentInputEvent event = new AgentInputEvent("1.0", new Agent("Bond", "007", "alias", "1.0"), "input", "session",
 				"discovery", "search", param, null, null);
 		String message = gson.toJson(event);
+		System.out.println(message);
 		// call under test
 		MainRequestHandler handler = new MainRequestHandler();
 		
