@@ -1,10 +1,12 @@
-package org.sagebionetworks.app.handler;
+package org.sagebionetworks.app.returncontrol;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+
+import org.sagebionetworks.app.returncontrol.handler.ReturnControlHandler;
 
 public class ReturnControlHandlerProvider {
 

@@ -1,4 +1,4 @@
-package org.sagebionetworks.app.handler;
+package org.sagebionetworks.app.returncontrol;
 
 import java.util.List;
 

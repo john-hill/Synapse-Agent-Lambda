@@ -10,8 +10,8 @@ import java.util.concurrent.Future;
 
 import org.openapitools.client.ApiException;
 import org.sagebionetworks.agent.action.model.Parameter;
-import org.sagebionetworks.app.handler.ReturnControlEvent;
-import org.sagebionetworks.app.handler.ReturnControlHandlerProvider;
+import org.sagebionetworks.app.returncontrol.ReturnControlEvent;
+import org.sagebionetworks.app.returncontrol.ReturnControlHandlerProvider;
 
 import com.google.inject.Inject;
 

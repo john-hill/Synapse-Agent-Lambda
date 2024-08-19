@@ -7,14 +7,15 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.sagebionetworks.app.handler.GetDescriptionHandler;
-import org.sagebionetworks.app.handler.ReturnControlHandlerProvider;
-import org.sagebionetworks.app.handler.SearchHandler;
+import org.sagebionetworks.app.returncontrol.ReturnControlHandlerProvider;
+import org.sagebionetworks.app.returncontrol.handler.GetDescriptionHandler;
+import org.sagebionetworks.app.returncontrol.handler.SearchHandler;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.bedrockagentruntime.BedrockAgentRuntimeAsyncClient;
 
@@ -30,7 +31,7 @@ public class AppModule extends AbstractModule {
 	@Provides
 	public BedrockAgentRuntimeAsyncClient createBedrockRuntime() {
 		return BedrockAgentRuntimeAsyncClient.builder().credentialsProvider(DefaultCredentialsProvider.create())
-				.region(Region.US_EAST_1).build();
+				.region(Region.US_EAST_1).httpClient(NettyNioAsyncHttpClient.builder().build()).build();
 	}
 
 	@Provides

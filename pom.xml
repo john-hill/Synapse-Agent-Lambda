@@ -115,11 +115,6 @@
 				<artifactId>guice</artifactId>
 				<version>7.0.0</version>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>3.14.0</version>
-			</dependency>
 			<!--
 			https://mvnrepository.com/artifact/software.amazon.awssdk/bedrockagentruntime -->
 			<dependency>
@@ -127,7 +122,16 @@
 				<artifactId>bedrockagentruntime</artifactId>
 				<version>${aws.sdk.version}</version>
 			</dependency>
-
+			<dependency>
+				<artifactId>apache-client</artifactId>
+				<groupId>software.amazon.awssdk</groupId>
+				<version>${aws.sdk.version}</version>
+			</dependency>
+			<dependency>
+				<artifactId>netty-nio-client</artifactId>
+				<groupId>software.amazon.awssdk</groupId>
+				<version>${aws.sdk.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 			<dependency>
 				<groupId>org.mockito</groupId>
