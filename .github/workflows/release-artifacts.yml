@@ -1,5 +1,5 @@
 # Creates a release with build artifacts attached after a tag is created.
-name: Build plugin
+name: Add Release Artifacts
 
 on:
   push:
