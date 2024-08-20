@@ -2,6 +2,7 @@ package org.sagebionetworks.app;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -33,7 +34,9 @@ public class AppModule extends AbstractModule {
 	@Provides
 	public BedrockAgentRuntimeAsyncClient createBedrockRuntime() {
 		return BedrockAgentRuntimeAsyncClient.builder().credentialsProvider(DefaultCredentialsProvider.create())
-				.region(Region.US_EAST_1).httpClient(NettyNioAsyncHttpClient.builder().build()).build();
+				.region(Region.US_EAST_1)
+				.httpClient(NettyNioAsyncHttpClient.builder().connectionTimeout(Duration.ofSeconds(60)).build())
+				.build();
 	}
 
 	@Provides
