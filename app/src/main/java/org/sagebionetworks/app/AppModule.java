@@ -8,7 +8,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.sagebionetworks.app.returncontrol.ReturnControlHandlerProvider;
+import org.sagebionetworks.app.returncontrol.handler.GetChildrenHandler;
 import org.sagebionetworks.app.returncontrol.handler.GetDescriptionHandler;
+import org.sagebionetworks.app.returncontrol.handler.GetEntityMetadataHandler;
 import org.sagebionetworks.app.returncontrol.handler.SearchHandler;
 
 import com.google.inject.AbstractModule;
@@ -55,8 +57,9 @@ public class AppModule extends AbstractModule {
 	}
 
 	@Provides
-	ReturnControlHandlerProvider handlerProvider(SearchHandler searchHandler,
-			GetDescriptionHandler descriptionHandler) {
-		return new ReturnControlHandlerProvider(List.of(searchHandler, descriptionHandler));
+	ReturnControlHandlerProvider handlerProvider(SearchHandler searchHandler, GetDescriptionHandler descriptionHandler,
+			GetEntityMetadataHandler getEntityMetadataHandler, GetChildrenHandler getChildrenHandler) {
+		return new ReturnControlHandlerProvider(
+				List.of(searchHandler, descriptionHandler, getEntityMetadataHandler, getChildrenHandler));
 	}
 }
